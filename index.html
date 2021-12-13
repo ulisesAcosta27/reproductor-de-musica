@@ -3,58 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="player">
-            <div class="player__controls">
-                <div class="player__btn player__btn--small" id="previous">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-                <h5 class="player__title">playing now</h5>
-                <div class="player__btn player__btn--small" id="icon-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-            <div class="player__album">
-                <img src="descarga.jpg" alt="Album Cover" class="player__img" loading="lazy" />
-            </div>
+    <div class="player">
+        <div class="cover">
+            <img src="descarga.jpg" alt="">
+        </div>
+        <div class="info">
+            <div class="title">Wont Let You Go</div>
+            <div class="singer">Martin Garrix - Matisse</div>
+        </div>
+        <div class="volume-box">
+            <span class="volume-down"><i class="material-icons bx bx-minus"></i></span>
+            <input type="range" class="volume-range" step="1" value="60" min="0" max="100"
+                oninput="music.volume = this.value/60">
+            <span class="volume-up"><i class="material-icons bx bx-plus"></i></span>
+        </div>
+        <div class="btn-box">
+            <i class="material-icons repeat bx bx-repeat" onclick="handleRepeat()"></i>
+            <i class="material-icons favorite active bx bxs-heart" onclick="handleFavorite()"></i>
+            <i class="material-icons volume bx bxs-volume-full" onclick="handleVolume()"></i>
+        </div>
+        <div class="music-box">
+            <input type="range" step="1" class="seekbar" value="0" min="0" max="100" oninput="handleSeekBar()">
 
-            <h2 class="player__artist">Piece of your heart</h2>
-            <h3 class="player__song">meduza</h3>
-
-            <input type="range" value="20" min="0" class="player__level" id="range" />
-            <div class="audio-duration">
-                <div class="start">00:01</div>
-                <div class="end">04:30</div>
-            </div>
-
-            <audio class="player__audio" controls id="audio">
-                <source src="y2mate.com - MEDUZA Goodboys  Piece Of Your Heart Visualizer.mp3"
-                    type="audio/mpeg" />
+            <audio class="music-element">
+                <source src="Martin Garrix Matisse  Sadko John Martin  Wont Let You Go.mp3" type="audio/mp3">
             </audio>
-
-            <div class="player__controls">
-                <div class="player__btn player__btn--medium" id="backward">
-                    <i class="fas fa-backward"></i>
-                </div>
-
-                <div class="player__btn player__btn--medium blue play" id="play">
-                    <i class="fas fa-play play-btn"></i>
-                    <i class="fas fa-pause pause-btn hide"></i>
-                </div>
-
-                <div class="player__btn player__btn--medium" id="forward">
-                    <i class="fas fa-forward"></i>
-                </div>
-            </div>
+            <span class="current-time">0:0</span><span class="duration">0:0</span>
+            <span class="play" onclick="handlePlay()">
+                <i class="material-icons bx bx-play"></i>
+            </span>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/41647e3a33.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+</body>
+
 </html>
